@@ -28,6 +28,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 # toast
 gem 'toastr-rails'
+# coverage
+gem 'coveralls', require: false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
