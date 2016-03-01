@@ -1,0 +1,11 @@
+<% unless object.errors.empty? %>
+    <% object.errors.full_messages.each do |msg| %>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="alert alert-danger">
+              <%= msg %><br/>
+            </div>
+          </div>
+        </div>
+    <% end %>
+<% end %>

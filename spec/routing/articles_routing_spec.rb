@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  body       :text
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require "rails_helper"
 
 RSpec.describe ArticlesController, type: :routing do
@@ -34,6 +46,5 @@ RSpec.describe ArticlesController, type: :routing do
     it "routes to #destroy" do
       expect(:delete => "/articles/1").to route_to("articles#destroy", :id => "1")
     end
-
   end
 end

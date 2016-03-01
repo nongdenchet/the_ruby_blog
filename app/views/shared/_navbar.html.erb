@@ -1,0 +1,23 @@
+<!-- Static navbar -->
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to "Ruby The Blog", pages_home_path, class: "navbar-brand" %>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+            <li>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete,
+                          data: {confirm: "Are you sure?"}, class: "navbar-brand" %>
+            </li>
+        <% else %>
+            <li><%= link_to "Log In", new_user_session_path, class: "navbar-brand" %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path, class: "navbar-brand" %></li>
+        <% end %>
+        <li><%= link_to "New Article", new_article_path, class: "navbar-brand" %></li>
+      </ul>
+    </div>
+  </nav>
+</header>

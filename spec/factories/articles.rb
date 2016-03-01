@@ -10,10 +10,9 @@
 #  updated_at :datetime         not null
 #
 
-class Article < ActiveRecord::Base
-  belongs_to :user
-
-  validates :title, presence: true, length: {minimum: 8}
-  validates :body, presence: true, length: {minimum: 8}
-  validates :user_id, presence: true
+FactoryGirl.define do
+  factory :article, class: Article do
+    title 'Android Engineer'
+    body 'Ruby on Rails'
+  end
 end

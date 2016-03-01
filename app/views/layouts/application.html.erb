@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TheRubyBlog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title>Ruby The Blog</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<!-- create navbar layout -->
+<%= render 'shared/navbar' %>
+
+<!-- create error messages layout -->
+<%= render 'shared/error_messages' %>
+
+<!-- main content -->
+<main>
+  <div class="container">
+    <%= yield %>
+  </div>
+</main>
 
 </body>
 </html>

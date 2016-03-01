@@ -64,6 +64,9 @@ group :test do
 
   # Test coverages
   gem 'simplecov', :require => false, :group => :test
+
+  # add annotation for model classes
+  gem 'annotate'
 end
 
 group :development, :test do

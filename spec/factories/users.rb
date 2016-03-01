@@ -17,11 +17,10 @@
 #  updated_at             :datetime         not null
 #
 
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  has_many :articles
+FactoryGirl.define do
+  factory :user, class: User do
+    email 'vuhuyquan@apidez.com'
+    password 'androidDeveloper7'
+    password_confirmation 'androidDeveloper7'
+  end
 end

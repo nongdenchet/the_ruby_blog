@@ -1,25 +1,31 @@
-<%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+<div class="col-md-10 col-md-offset-1">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="container" style="width: 90%">
+        <%= render 'shared/error', object: @article %>
 
-      <ul>
-      <% @article.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <%= form_for(@article) do |f| %>
+            <div class="row">
+              <div class="form-group">
+                <label>Title</label>
+                <%= f.text_field :title, placeholder: "Your title", class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <label>Body</label>
+                <%= f.text_area :body, placeholder: "Your body", class: "form-control", style: "height: 400px" %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="actions">
+                <%= f.submit "Save", class: "btn btn-primary active" %>
+              </div>
+            </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
