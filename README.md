@@ -1,4 +1,4 @@
-# Pre-work - *Ruby the Blog*
+# Pre-work - *Ruby the Blog* [![Coverage Status](https://coveralls.io/repos/github/nongdenchet/the_ruby_blog/badge.svg?branch=master)](https://coveralls.io/github/nongdenchet/the_ruby_blog?branch=master) [![Build Status](https://travis-ci.org/nongdenchet/the_ruby_blog.svg?branch=master)](https://travis-ci.org/nongdenchet/the_ruby_blog)
 
 **Ruby the Blog* is a Ruby on Rails blog application.
 
