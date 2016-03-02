@@ -1,7 +1,7 @@
 <div class="card" style="margin-bottom: 30px">
   <div class="card-block">
     <h4 class="card-title"><%= article.title %></h4>
-    <p class="card-text"><%= article.body %></p>
+    <p class="card-text"><%= @markdown.render(article.body).html_safe %></p>
   </div>
   <div class="card-footer">
     <%= link_to 'Show', article, class: 'btn btn-primary' %>

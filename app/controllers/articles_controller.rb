@@ -17,9 +17,11 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @title = @articles.length > 0 ? 'All Articles' : 'There is no article'
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   def show
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   def new
