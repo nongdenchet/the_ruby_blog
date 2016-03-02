@@ -41,6 +41,37 @@ RSpec.describe ArticlesController, type: :controller do
       expect(assigns(:articles).length).to eq(3)
       expect(assigns(:title)).to eq('All Articles')
     end
+
+    it "should support markdown" do
+      create(:article, user: @user)
+      get(:show, id: "1")
+      expect(assigns(:markdown).render("**no**")).to eq("<p><strong>no</strong></p>\n")
+    end
+  end
+
+  ### SEARCH ###
+  describe "#index" do
+    it "should return no articles" do
+      post :search, {title: ''}
+      expect(response).to have_http_status(:success)
+      expect(assigns(:articles).length).to eq(0)
+      expect(assigns(:title)).to eq('There is no article')
+    end
+
+    it "should return 3 articles" do
+      3.times do
+        create(:article, user: @user)
+      end
+      post :search, {title: 'Android'}
+      expect(response).to have_http_status(:success)
+      expect(assigns(:articles).length).to eq(3)
+      expect(assigns(:title)).to eq('Search result')
+    end
+
+    it "should support markdown" do
+      post :search, {title: 'Android'}
+      expect(assigns(:markdown).render("**no**")).to eq("<p><strong>no</strong></p>\n")
+    end
   end
 
   ### CREATE ###
@@ -99,11 +130,14 @@ RSpec.describe ArticlesController, type: :controller do
       @article.save
     end
 
-    context "user not sign in" do
-      it "should return success as guest" do
-        get(:show, id: "1")
-        expect(response).to have_http_status(:success)
-      end
+    it "should return success as guest" do
+      get(:show, id: "1")
+      expect(response).to have_http_status(:success)
+    end
+
+    it "should support markdown" do
+      get(:show, id: "1")
+      expect(assigns(:markdown).render("**no**")).to eq("<p><strong>no</strong></p>\n")
     end
   end
 

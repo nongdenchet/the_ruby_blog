@@ -11,17 +11,21 @@
 #
 
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index, :search]
+  before_action :set_markdown, only: [:index, :show, :search]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
     @articles = Article.all
     @title = @articles.length > 0 ? 'All Articles' : 'There is no article'
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   def show
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+  end
+
+  def search
+    @articles = Article.where("title LIKE :query", query: "%#{params[:title]}%")
+    @title = @articles.length > 0 ? 'Search result' : 'There is no article'
   end
 
   def new
@@ -54,6 +58,10 @@ class ArticlesController < ApplicationController
   end
 
   private
+  def set_markdown
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+  end
+
   def set_article
     @article = Article.find(params[:id])
   end

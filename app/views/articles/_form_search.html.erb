@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="container" style="width: 100%">
+      <%= form_tag '/articles/search' do %>
+          <h5>Search by title</h5>
+
+          <div class="form-group">
+            <%= text_area_tag :title, nil, placeholder: "Your title", class: "form-control", style: "height: 100px" %>
+          </div>
+
+          <div class="actions">
+            <%= submit_tag "Search", class: "btn btn-primary active", style: "width: 100%" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
