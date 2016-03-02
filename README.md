@@ -14,10 +14,10 @@ The following **required** functionality is complete:
 
 * [x] User can create a new post, formatted using the Markdown language.
 * [x] User can edit an existing post.
-* [ ] There is one post that introduces the App Creator with name, picture.
+* [x] There is one post that introduces the App Creator with name, picture.
 * [x] User can delete stories, with an alert that asks the user to confirm.
-* [ ] User see a search form on the Posts page.
-* [ ] User can submit a search term to find all posts by with titles containing the search term.
+* [x] User see a search form on the Posts page.
+* [x] User can submit a search term to find all posts by with titles containing the search term.
 
 The following **additional** features are implemented:
 
