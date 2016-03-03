@@ -8,6 +8,7 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  view_count :integer          default(0)
 #
 
 class ArticlesController < ApplicationController
@@ -21,11 +22,20 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    if params[:show]
+      @article.increase_view_count
+    end
+    @comments = @article.comments
   end
 
   def search
-    @articles = Article.where("title LIKE :query", query: "%#{params[:title]}%")
-    @title = @articles.length > 0 ? 'Search result' : 'There is no article'
+    if params[:title].blank?
+      @title = 'Your keyword is empty'
+      @articles = []
+    else
+      @articles = Article.where('lower(title) LIKE :query', query: "%#{params[:title].downcase}%")
+      @title = @articles.length > 0 ? 'Search result' : 'There is no article'
+    end
   end
 
   def new

@@ -8,6 +8,7 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  view_count :integer          default(0)
 #
 
 require 'rails_helper'
@@ -17,6 +18,7 @@ RSpec.describe Article, type: :model do
   it { should respond_to(:title) }
   it { should respond_to(:body) }
   it { should respond_to(:user) }
+  it { should respond_to(:view_count) }
   it { should respond_to(:user_id) }
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:body) }

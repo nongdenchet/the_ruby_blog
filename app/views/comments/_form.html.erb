@@ -1,0 +1,21 @@
+<div class="container" style="width: 100%">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-8">
+      <%= form_for(current_user.comments.new, url: comments_create_url) do |f| %>
+          <div class="card" style="margin-bottom: 30px">
+            <div class="card-block">
+              <div class="form-group">
+                <%= f.text_area :content, placeholder: "Your comment", class: "form-control", required: true %>
+              </div>
+            </div>
+            <%= f.hidden_field :article_id, value: @article.id %>
+            <div class="card-footer">
+              <div class="actions">
+                <%= submit_tag "Submit", class: "btn btn-primary active", style: "width: 100%" %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

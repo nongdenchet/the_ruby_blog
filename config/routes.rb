@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root :to => 'articles#index', as: :pages_home
+
+  # articles
   resources :articles do
     post 'search', on: :collection
   end
-  root :to => 'articles#index', as: :pages_home
-  devise_for :users
+
+  # comments
+  post 'comments/create'
 end

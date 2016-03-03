@@ -8,6 +8,7 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  view_count :integer          default(0)
 #
 
 require 'rails_helper'
@@ -55,7 +56,7 @@ RSpec.describe ArticlesController, type: :controller do
       post :search, {title: ''}
       expect(response).to have_http_status(:success)
       expect(assigns(:articles).length).to eq(0)
-      expect(assigns(:title)).to eq('There is no article')
+      expect(assigns(:title)).to eq('Your keyword is empty')
     end
 
     it "should return 3 articles" do
@@ -133,6 +134,16 @@ RSpec.describe ArticlesController, type: :controller do
     it "should return success as guest" do
       get(:show, id: "1")
       expect(response).to have_http_status(:success)
+    end
+
+    it "should increase view count" do
+      get(:show, {id: "1", show: true})
+      expect(Article.first.view_count).to eq(1)
+    end
+
+    it "should not increase view count" do
+      get(:show, id: "1")
+      expect(Article.first.view_count).to eq(0)
     end
 
     it "should support markdown" do

@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-8">
+    <div class="card" style="margin-bottom: 30px">
+      <div class="card-block">
+        <h5 class="card-title"><%= comment.user.email %> </h5>
+        <p class="card-text"><%= @markdown.render(comment.content).html_safe %></p>
+      </div>
+    </div>
+  </div>
+</div>
