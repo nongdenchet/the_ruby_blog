@@ -4,7 +4,7 @@
 
 Submitted by: **Vũ Huy Quân**
 
-Time spent: **5** hours spent in total
+Time spent: **8** hours spent in total
 
 URL: **http://rubytheblog.herokuapp.com/**
 
@@ -19,8 +19,11 @@ The following **required** functionality is complete:
 * [x] User see a search form on the Posts page.
 * [x] User can submit a search term to find all posts by with titles containing the search term.
 
-The following **additional** features are implemented:
+The following **optional** features are implemented:
+* [x] User can see how many views a post has. 
+* [x] User can leave a comment on a post.
 
+The following **additional** features are implemented:
 - [x] User can sign up, login, logout
 - [x] User will be asked to login when a edit/delete a post (if he or she as not logged in yet)
 
