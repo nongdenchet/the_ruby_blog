@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
     if params[:show]
       @article.increase_view_count
     end
+    @comment = Comment.new
     @comments = @article.comments
   end
 
