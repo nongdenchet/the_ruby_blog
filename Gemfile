@@ -73,6 +73,10 @@ group :test do
   # Test datas
   gem 'factory_girl_rails'
 
+  # Acceptance test
+  gem 'capybara'
+  gem 'selenium-webdriver'
+
   # Test coverages
   gem 'simplecov', :require => false, :group => :test
 
